@@ -68,6 +68,12 @@
     (test-case "scan base case"
                (check-equal? (scan + 0 '())
                              '(0)))
-    (test-case "scan inductive case"
+    (test-case "scan non-zero base case"
+               (check-equal? (scan + 10 '())
+                             '(10)))
+    (test-case "scan inductive case (+)"
                (check-equal? (scan + 0 '(1 2 3 4 5 6))
-                             '(0 1 3 6 10 15 21))))))
+                             '(0 1 3 6 10 15 21)))
+    (test-case "scan inductive case (*)"
+               (check-equal? (scan * 1 '(1 2 3 4 5 6))
+                             '(1 1 2 6 24 120 720))))))
